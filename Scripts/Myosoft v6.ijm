@@ -138,7 +138,7 @@ Dialog.create("Set scale");
 Dialog.addMessage ("set scale for your image as pixels:microns");
 
 Dialog.addNumber("pixels", 1);
-Dialog.addNumber("microns", 0.9091);
+Dialog.addNumber("microns", 1.1);
 
 Dialog.show();
 
@@ -927,11 +927,12 @@ roiManager("Delete");
 // values to obtain mean intensity. dat_loc and reference/ index images are saved to a location on the computer
 
 open(chnl_img + "Myosoft-1 typeIIa.tif");
+run("Set Scale...", "distance="+mic+" known=1 pixel="+pix+" unit=micron"); 
 roiManager("Show All with labels");
 roiManager("Measure");
 run("Flatten");
 
-saveAs("Results", dat_loc + "Fiber_type_Results_typeIIa.csv");
+saveAs("Results", dat_loc + "Fiber_type_Results_typeIIa.xlsx");
 saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeIIa");
 
    if (isOpen("Results")) { 
@@ -940,11 +941,12 @@ saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeIIa");
    } 
 
 open(chnl_img + "Myosoft-1 typeIIb.tif");
+run("Set Scale...", "distance="+mic+" known=1 pixel="+pix+" unit=micron"); 
 roiManager("Show All with labels");
 roiManager("Measure");
 run("Flatten");
 
-saveAs("Results", dat_loc + "Fiber_type_Results_typeIIb.csv");
+saveAs("Results", dat_loc + "Fiber_type_Results_typeIIb.xlsx");
 saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeIIb");
 
    if (isOpen("Results")) { 
@@ -953,11 +955,12 @@ saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeIIb");
    } 
 
 open(chnl_img + "Myosoft-1 typeI.tif");
+run("Set Scale...", "distance="+mic+" known=1 pixel="+pix+" unit=micron"); 
 roiManager("Show All with labels");
 roiManager("Measure");
 run("Flatten");
 
-saveAs("Results", dat_loc + "Fiber_type_Results_typeI.csv");
+saveAs("Results", dat_loc + "Fiber_type_Results_typeI.xlsx");
 saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeI");
 
 
@@ -967,11 +970,12 @@ saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_typeI");
    } 
 
 open(chnl_img + "Myosoft-1 membrane.tif");
+run("Set Scale...", "distance="+mic+" known=1 pixel="+pix+" unit=micron"); 
 roiManager("Show All with labels");
 roiManager("Measure");
 run("Flatten");
 saveAs("Tiff", dat_loc + "InputImageNameHere_referenceImg_area");
-saveAs("Results", dat_loc + "Fiber_area_Results.csv");
+saveAs("Results", dat_loc + "Fiber_area_Results.xlsx");
 
 
 selectWindow("Myosoft-1 membrane.tif");
