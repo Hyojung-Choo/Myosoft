@@ -924,11 +924,6 @@ if (nbFibers > 0) {
 
 roiManager("Delete");
 
-roiManager("Save", roi_loc+"total_ROI.zip");
-roiManager("Measure"); 
-run("Summarize");
-saveAs("Results", dat_loc + "Total_fiber_Results.csv");
-
 selectWindow("Results");
 lines1 = split(getInfo(), "\n");
 headings = split(lines1[0], "\t");
